@@ -1,4 +1,4 @@
-# MyGit: A Go Implementation of Git
+# Go Implementation of some Git commands
 
 A custom, zero-dependency implementation of the some of the core Git version control system commands written entirely in Go. This project rebuilds Git's local object model and network transfer protocols from the ground up to get a deep understanding of git's internals.
 
@@ -24,9 +24,16 @@ go build -o git_cmd_impl_in_go ./cmd/mygit
 
 # Supported Commands
 - init: Initialize an empty Git repository.
+    example: `<path_to_binary>/git_cmd_impl_in_go init`
 - cat-file -p <sha>: Read and decompress an object's contents.
+    example: `<path_to_binary>/git_cmd_impl_in_go cat-file -p <sha>`
 - hash-object -w <file>: Compute a file's SHA-1 hash and save it to .git/objects.
+    example: `<path_to_binary>/git_cmd_impl_in_go hash-object -w <file>`
 - write-tree: Traverse the working directory and write tree objects.
+    example: `<path_to_binary>/git_cmd_impl_in_go write-tree`
 - ls-tree --name-only <tree-sha>: List contents of a tree object.
+    example: `<path_to_binary>/git_cmd_impl_in_go ls-tree --name-only <tree-sha>`
 - commit-tree <tree-sha> -m "Message": Create a commit object.
+    example: `<path_to_binary>/git_cmd_impl_in_go commit-tree <tree-sha> -m "Message"`
 - clone <url> <directory>: Clone a remote repository over HTTPS.
+    example: `<path_to_binary>/git_cmd_impl_in_go clone <url> <directory>`

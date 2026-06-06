@@ -7,7 +7,7 @@ import (
 	"encoding/hex"
 	"fmt"
 	"io"
-	"github.com/codecrafters-io/git-starter-go/internal/core"
+	"git_cmd_impl_in_go/internal/core"
 	"net/http"
 	"os"
 	"strconv"

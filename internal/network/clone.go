@@ -4,7 +4,7 @@ import (
 	"bytes"
 	"encoding/hex"
 	"fmt"
-	"github.com/codecrafters-io/git-starter-go/internal/core"
+	"git_cmd_impl_in_go/internal/core"
 	"os"
 	"path/filepath"
 	"strings"

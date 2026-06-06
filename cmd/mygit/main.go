@@ -2,8 +2,8 @@ package main
 
 import (
 	"fmt"
-	"github.com/codecrafters-io/git-starter-go/internal/core"
-	"github.com/codecrafters-io/git-starter-go/internal/network"
+	"git_cmd_impl_in_go/internal/core"
+	"git_cmd_impl_in_go/internal/network"
 	"os"
 )
 
