@@ -65,15 +65,21 @@ func WriteTree(dirPath string) string {
 func LsTreeCmd(args []string) {
 	if len(args) < 4 || args[2] != "--name-only" {
 		fmt.Fprintf(os.Stderr, "usage: mygit ls-tree --name-only <tree>\n")
+		// <tree> is the hash of the tree object we want to list. This command will read the tree object from the .git/objects directory, parse its content, and print the names of the files and directories it contains.
 		os.Exit(1)
 	}
 	content, _ := ReadObject(args[3])
+	// format of content in tree object is:
+	// <mode> <name>\0<20-byte hash> for each entry in the tree.
 	for len(content) > 0 {
 		spaceIndex := bytes.IndexByte(content, ' ')
+		// we now have <name>\0<20-byte hash> of current entry .... next entry starts after that
 		content = content[spaceIndex+1:]
 		nullIndex := bytes.IndexByte(content, 0)
+		// name is substring till null byte
 		name := content[:nullIndex]
 		fmt.Println(string(name))
+		// we need to skip the null byte and the 20-byte hash to get to the next entry so 1+20 = 21
 		content = content[nullIndex+21:]
 	}
 }
